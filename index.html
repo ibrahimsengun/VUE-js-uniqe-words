@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentaks Intern Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Eşsiz Kelime Kontrolü</h1>
+
+        <label for="input">Kaç kelime gireceksiniz:</label>
+        <input v-on:keyup.enter="input" v-model="sayi" type="number" id="input">
+        <span class="info">(Yazdıktan sonra Enter'a basın)</span>
+        <br>
+        <br>
+        <div v-if="gorunurInput">
+            <label for="textarea">Kelimerleri giriniz:</label>
+            <br>
+            <input v-model="word" type="text" id="words" v-on:keyup.enter="wordsFunc">
+            <span class="alert">{{ message }}</span>
+            <p><b>Eşsiz Kelimeler (Toplam Girilen Kelime: {{ count }})</b></p>
+            <p v-for="n in wordsArray">{{ n }}</p>
+        </div>
+        
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
